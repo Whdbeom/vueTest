@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red{
+            color: red;
+        }
+
+        .font-bold{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- {{name}}<br>
+        <button @click="changeText">Click</button>
+
+        <hr> -->
+
+        <jb-button></jb-button>
+    </div>
+
+    <hr><hr>
+
+    <div id="app-1">
+        <!-- {{name}}<br>
+        <button @click="changeText">Click</button>
+
+        <hr> -->
+
+        <jb-button></jb-button>
+    </div>
+    <script>
+        // Vue.component('hello-world', {
+        //     template: '<div>hello world</div>'
+        // });
+
+        // Vue.component('jb-button', {
+        //     template: `
+        //         <div>       
+        //             {{name}}<br>
+        //             <hello-world/>
+        //             <button @click="changeText">Click</button>
+        //         </div>
+        //     `,
+        //     data() {
+        //         return {
+        //             name: 'jb'
+        //         }
+        //     },
+        //     methods: {
+        //         changeText(){
+        //             this.name = 'jb updated';
+        //         }
+        //     },
+        // });
+
+        const HelloWorld = {
+            template: '<div>hello world</div>'
+        };
+
+        const JbButton = {
+            components: {
+                'hello-world': HelloWorld
+            },
+            template: `
+                <div>       
+                    {{name}}<br>
+                    <hello-world/>
+                    <button @click="changeText">Click</button>
+                </div>
+            `,
+            data() {
+                return {
+                    name: 'jb'
+                }
+            },
+            methods: {
+                changeText(){
+                    this.name = 'jb updated';
+                }
+            },
+        }
+
+        const app = new Vue({
+            el: '#app',
+            components: {
+                'jb-button': JbButton,
+            }
+            // data: { 
+            //     name: 'jb'
+            // },
+            // methods: {
+            //     changeText(){
+            //         this.name = 'jb updated';
+            //     }
+            // },
+        })
+
+        const app1 = new Vue({
+            el: '#app-1',
+            // data: {
+            //     name: 'pjb',
+            // },
+            // methods: {
+            //     changeText(){
+            //         this.name = 'pjb updated';
+            //     }
+            // },
+        })
+    </script>
+</body>
+</html>
